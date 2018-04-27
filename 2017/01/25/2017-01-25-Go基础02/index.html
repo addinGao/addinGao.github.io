@@ -17,7 +17,7 @@
 <meta property="og:description" content="任何一门语言都有其数据类型，Go也一样，Go的数据类型分为四大类：基础类型(basic type)，聚合数据类型(aggregate type)，引用类型(reference type)，接口类型(interface type)">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4207935-4588337b722b00e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-27T13:54:35.565Z">
+<meta property="og:updated_time" content="2018-04-27T14:04:24.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言基础《二》--Go的基础数据类型">
 <meta name="twitter:description" content="任何一门语言都有其数据类型，Go也一样，Go的数据类型分为四大类：基础类型(basic type)，聚合数据类型(aggregate type)，引用类型(reference type)，接口类型(interface type)">
@@ -191,15 +191,210 @@
 </ul>
 <p><a href="#2">2、运算符</a></p>
 <p><a href="#3">3、流程控制语句if,switch,for,break,continue</a></p>
-<h1 id="1">基础类型</h1><br>&gt; 基础类型包含数字、字符串、布尔三种类型<br><br><h2 id="1.1">数字number类型</h2><br><br>1、<strong>整型</strong><br><br>| 类型 | 名称 | 长度(字节) | 零值 | 说明 |<br>| :-: | :-: | :-: | :-: | :- |<br>| byte | 字节型| 1 | 0 | uint8别名 |<br>| int\uint | 整型| 4或8 | 0 | 32位或者64位，由计算机系统决定 |<br>| int8\uint8 | 整型 | 1 | 0 | -128~127,0~255 |<br>| int16\uint16 | 整型 | 2 | 0 | -32768~32767,0~65535(计算机总端口数) |<br>| int32\uint32 | 整型 | 4 | 0 | -21亿~21亿,0~42亿 |<br>| int64\uint64 | 整型 | 8 | 0 |  |<br>| uintptr | 整型 | 4或8 | 0 | 完整存放指针，仅用细底层编程 |<br><br>&gt; Go 是强类型的静态编译语言，不同类型之间不能加减<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">int8</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b <span class="keyword">int16</span> =<span class="number">2</span></span><br><span class="line"><span class="keyword">var</span> c = a + b <span class="comment">//invalid operation: a + b (mismatched types int8 and int16) 编译错误-类型匹配</span></span><br><span class="line">想要相加，只能强转成一个类型</span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">int</span>(a) + <span class="keyword">int</span>(b)</span><br></pre></td></tr></table></figure><br><br>&gt; Go 常用的，并且一般默认推导出的整数都是有符号的整数<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">medals := []<span class="keyword">string</span>&#123;<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i := <span class="built_in">len</span>(medals) - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i-- &#123;  </span><br><span class="line">    fmt.Println(medals[i]) <span class="comment">// "one", "two", "three"  </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里如果len返回的是uint类型，那将是致命的，因为 i 将是一个uint类型，i &gt;= 0 将永远为真。这里 i 永远不会变为-1,当i == 0是，i--语句会将i变成uint的MAX值，这个时候程序就出现致命的问题了:medals[i]会去访问slice边界外的元素</span></span><br></pre></td></tr></table></figure><br><br><strong>总结：</strong>虽然Go提供无符号数和运算，但是我们更倾向于使用int类型，即使在需要非负数的场景，例如数组的长度，虽然这里看上去使用uint更合适。事实上len函数返回的就是有符号的int类型。<br><br>2、<strong>浮点型</strong><br><br>| 类型 | 名称 | 长度(字节) | 零值 | 说明 |<br>| :-: | :-: | :-: | :-: | :- |<br>| float32 | 浮点型| 4 | 0.0 | 小数位精确到7位（累积计算时误差扩散很快） |<br>| float64 | 浮点型| 8 | 0.0 | 小数位精确到15位(优先选择) |<br><br>&gt; 浮点数能够表示的范围可以从很小到很巨大极限值范围可以在math包中获取math.MaxFloat32、math.MaxFloat64<br><br><strong> 注意 </strong><br> - 两个浮点数相加减，可能不准确<br><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x := <span class="number">74.96</span>  </span><br><span class="line">y := <span class="number">20.48</span>  </span><br><span class="line">b := x - y  </span><br><span class="line">fmt.Println(b) <span class="comment">//output: 54.47999999999999 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">0.6</span>  </span><br><span class="line">fmt.Println(a + <span class="number">0.7</span>) <span class="comment">//output: 1.2999999999999998</span></span><br></pre></td></tr></table></figure><br><br> - float32和float64直接互转会精度丢失, 四舍五入后错误<br> - int64转float64在数值很大的时候出现偏差<br><br><strong> 解決方法（利用取近似值的方法解决这个问题） </strong><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">（<span class="number">1</span>）利用fmt.Sprintf()</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Round2</span><span class="params">(f <span class="keyword">float64</span>, n <span class="keyword">int</span>)</span> <span class="title">float64</span></span> &#123;  </span><br><span class="line">    floatStr := fmt.Sprintf(<span class="string">"%."</span>+strconv.Itoa(n)+<span class="string">"f"</span>, f)  </span><br><span class="line">    inst, _ := strconv.ParseFloat(floatStr, <span class="number">64</span>)  </span><br><span class="line">    <span class="keyword">return</span> inst  </span><br><span class="line">&#125;  </span><br><span class="line">（<span class="number">2</span>）利用math.Trunc()</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Round</span><span class="params">(f <span class="keyword">float64</span>, n <span class="keyword">int</span>)</span> <span class="title">float64</span></span> &#123;  </span><br><span class="line">    n10 := math.Pow10(n)  </span><br><span class="line">    <span class="keyword">return</span> math.Trunc((f+<span class="number">0.5</span>/n10)*n10) / n10  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br>3、整数除以浮点数的问题(題目)<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(<span class="number">11</span> / (<span class="number">10.0</span> * <span class="number">1</span>))  <span class="comment">// 1.1</span></span><br><span class="line"></span><br><span class="line">s := []<span class="keyword">byte</span>(<span class="string">"hello world"</span>)</span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="built_in">len</span>(s) / (<span class="number">10.0</span> * <span class="number">1</span>))  <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 都是int/float.結果爲啥不一樣</span></span><br><span class="line"></span><br><span class="line">原因：第一个左侧类型为数值常量，会根据右侧运算值类型float类确定左侧类型，之后再运算，float/float=float，所以是<span class="number">1.1</span>，而第二个<span class="built_in">len</span>函数返回类型为确定的<span class="keyword">int</span>，运算会按照左侧类型来执行，右侧被转换为<span class="keyword">int</span>类型，因此就是<span class="keyword">int</span>/<span class="keyword">int</span>=<span class="keyword">int</span> 值为<span class="number">1</span></span><br></pre></td></tr></table></figure><br><br><strong>总结：</strong><span style="color:red;background:#ddd;">自动类型转换原理：如果左侧运算符类型确定，则右侧转为左侧类型再运算,如果左侧类型不确定，则根据右侧类型推导左侧类型</span><br><br>2、<strong>复数类型</strong><br><br>| 类型 | 名称 | 长度(字节) | 零值 | 说明 |<br>| :-: | :-: | :-: | :-: | :- |<br>| complex64 | 复数类型| 8 |  |  |<br>| complex128 | 复数类型| 16 |  |  |<br><br>&gt; 形如a+bi（a,b均为实数）的数称为复数，其中a称为实部，b称为虚部<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  t <span class="keyword">complex128</span>  <span class="comment">// 声明</span></span><br><span class="line"></span><br><span class="line">t  = <span class="number">1.2</span> + <span class="number">2.34i</span>      <span class="comment">// 赋值  = &gt; (1.2+2.34i)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//通过内建函数  real()  取实部,imag() 取虚部</span></span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">"实部为"</span>，<span class="built_in">real</span>(t), <span class="string">"虚部为"</span>，<span class="built_in">imag</span>(t)) <span class="comment">// 实部为1.2  虚部为2.34</span></span><br></pre></td></tr></table></figure><br><br><h2 id="1.2">字符串string类型</h2><br><br>| 类型 | 名称 | 长度(字节) | 零值 | 说明 |<br>| :-: | :-: | :-: | :-: | :- |<br>| rune | 字符类型| 4 |  | 专门用于存储Unicode编码，是uint32别名 |<br>| string | 字符串类型 |  | “” | utf8字符串 |<br><br>&gt;字符串都是隐藏了一个结束符’ \0’  // str = “a”  由’a’ 和’\0’组成一个字符串可以通过 atr[0] 下标访问<br><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">"helloworld"</span></span><br><span class="line"><span class="comment">// 可以通过下标访问</span></span><br><span class="line">fmt.Println(str[<span class="number">0</span>]) <span class="comment">// h</span></span><br><span class="line">使用内建函数<span class="built_in">len</span>() 能得到字符串的长度。</span><br><span class="line">字符串<span class="keyword">string</span>：“” ，由字符组成</span><br><span class="line">字符char：‘’</span><br></pre></td></tr></table></figure><br><br><h2 id="1.3">布尔类型bool</h2><br><br>&gt; bool 类型只有2个值 true 和 false<br><br><h2 id="1.4">类型转换</h2><br><br>&gt; strconv包实现了基本数据类型和其字符串表示的相互转换。<br><br>&gt; 不同类型之间不能转换-强转也不行（只能用strconv包）<br><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c <span class="keyword">int32</span> = <span class="number">10</span></span><br><span class="line">d := <span class="keyword">int</span>(c) <span class="comment">// ok</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="literal">false</span></span><br><span class="line">s := <span class="keyword">int</span>(f) <span class="comment">// error</span></span><br></pre></td></tr></table></figure><br><br><h1 id="2">运算符</h1>
+<p></p><h1 id="1">基础类型</h1><p></p>
+<blockquote>
+<p>基础类型包含数字、字符串、布尔三种类型</p>
+</blockquote>
+<h2 id="1.1">数字number类型</h2>
+
+<p>1、<strong>整型</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">长度(字节)</th>
+<th style="text-align:center">零值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">字节型</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:left">uint8别名</td>
+</tr>
+<tr>
+<td style="text-align:center">int\uint</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4或8</td>
+<td style="text-align:center">0</td>
+<td style="text-align:left">32位或者64位，由计算机系统决定</td>
+</tr>
+<tr>
+<td style="text-align:center">int8\uint8</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:left">-128~127,0~255</td>
+</tr>
+<tr>
+<td style="text-align:center">int16\uint16</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:left">-32768~32767,0~65535(计算机总端口数)</td>
+</tr>
+<tr>
+<td style="text-align:center">int32\uint32</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:left">-21亿~21亿,0~42亿</td>
+</tr>
+<tr>
+<td style="text-align:center">int64\uint64</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">uintptr</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">4或8</td>
+<td style="text-align:center">0</td>
+<td style="text-align:left">完整存放指针，仅用细底层编程</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Go 是强类型的静态编译语言，不同类型之间不能加减<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">int8</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b <span class="keyword">int16</span> =<span class="number">2</span></span><br><span class="line"><span class="keyword">var</span> c = a + b <span class="comment">//invalid operation: a + b (mismatched types int8 and int16) 编译错误-类型匹配</span></span><br><span class="line">想要相加，只能强转成一个类型</span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">int</span>(a) + <span class="keyword">int</span>(b)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>Go 常用的，并且一般默认推导出的整数都是有符号的整数<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">medals := []<span class="keyword">string</span>&#123;<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i := <span class="built_in">len</span>(medals) - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i-- &#123;  </span><br><span class="line">    fmt.Println(medals[i]) <span class="comment">// "one", "two", "three"  </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里如果len返回的是uint类型，那将是致命的，因为 i 将是一个uint类型，i &gt;= 0 将永远为真。这里 i 永远不会变为-1,当i == 0是，i--语句会将i变成uint的MAX值，这个时候程序就出现致命的问题了:medals[i]会去访问slice边界外的元素</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>总结：</strong>虽然Go提供无符号数和运算，但是我们更倾向于使用int类型，即使在需要非负数的场景，例如数组的长度，虽然这里看上去使用uint更合适。事实上len函数返回的就是有符号的int类型。</p>
+<p>2、<strong>浮点型</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">长度(字节)</th>
+<th style="text-align:center">零值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">float32</td>
+<td style="text-align:center">浮点型</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0.0</td>
+<td style="text-align:left">小数位精确到7位（累积计算时误差扩散很快）</td>
+</tr>
+<tr>
+<td style="text-align:center">float64</td>
+<td style="text-align:center">浮点型</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">0.0</td>
+<td style="text-align:left">小数位精确到15位(优先选择)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>浮点数能够表示的范围可以从很小到很巨大极限值范围可以在math包中获取math.MaxFloat32、math.MaxFloat64</p>
+</blockquote>
+<p><strong> 注意 </strong></p>
+<ul>
+<li>两个浮点数相加减，可能不准确</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x := <span class="number">74.96</span>  </span><br><span class="line">y := <span class="number">20.48</span>  </span><br><span class="line">b := x - y  </span><br><span class="line">fmt.Println(b) <span class="comment">//output: 54.47999999999999 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">0.6</span>  </span><br><span class="line">fmt.Println(a + <span class="number">0.7</span>) <span class="comment">//output: 1.2999999999999998</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>float32和float64直接互转会精度丢失, 四舍五入后错误</li>
+<li>int64转float64在数值很大的时候出现偏差 </li>
+</ul>
+<p><strong> 解決方法（利用取近似值的方法解决这个问题） </strong><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">（<span class="number">1</span>）利用fmt.Sprintf()</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Round2</span><span class="params">(f <span class="keyword">float64</span>, n <span class="keyword">int</span>)</span> <span class="title">float64</span></span> &#123;  </span><br><span class="line">    floatStr := fmt.Sprintf(<span class="string">"%."</span>+strconv.Itoa(n)+<span class="string">"f"</span>, f)  </span><br><span class="line">    inst, _ := strconv.ParseFloat(floatStr, <span class="number">64</span>)  </span><br><span class="line">    <span class="keyword">return</span> inst  </span><br><span class="line">&#125;  </span><br><span class="line">（<span class="number">2</span>）利用math.Trunc()</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Round</span><span class="params">(f <span class="keyword">float64</span>, n <span class="keyword">int</span>)</span> <span class="title">float64</span></span> &#123;  </span><br><span class="line">    n10 := math.Pow10(n)  </span><br><span class="line">    <span class="keyword">return</span> math.Trunc((f+<span class="number">0.5</span>/n10)*n10) / n10  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3、整数除以浮点数的问题(題目)<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(<span class="number">11</span> / (<span class="number">10.0</span> * <span class="number">1</span>))  <span class="comment">// 1.1</span></span><br><span class="line"></span><br><span class="line">s := []<span class="keyword">byte</span>(<span class="string">"hello world"</span>)</span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="built_in">len</span>(s) / (<span class="number">10.0</span> * <span class="number">1</span>))  <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 都是int/float.結果爲啥不一樣</span></span><br><span class="line"></span><br><span class="line">原因：第一个左侧类型为数值常量，会根据右侧运算值类型float类确定左侧类型，之后再运算，float/float=float，所以是<span class="number">1.1</span>，而第二个<span class="built_in">len</span>函数返回类型为确定的<span class="keyword">int</span>，运算会按照左侧类型来执行，右侧被转换为<span class="keyword">int</span>类型，因此就是<span class="keyword">int</span>/<span class="keyword">int</span>=<span class="keyword">int</span> 值为<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>总结：</strong><span style="color:red;background:#ddd;">自动类型转换原理：如果左侧运算符类型确定，则右侧转为左侧类型再运算,如果左侧类型不确定，则根据右侧类型推导左侧类型</span></p>
+<p>2、<strong>复数类型</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">长度(字节)</th>
+<th style="text-align:center">零值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">complex64</td>
+<td style="text-align:center">复数类型</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">complex128</td>
+<td style="text-align:center">复数类型</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>形如a+bi（a,b均为实数）的数称为复数，其中a称为实部，b称为虚部<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  t <span class="keyword">complex128</span>  <span class="comment">// 声明</span></span><br><span class="line"></span><br><span class="line">t  = <span class="number">1.2</span> + <span class="number">2.34i</span>      <span class="comment">// 赋值  = &gt; (1.2+2.34i)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//通过内建函数  real()  取实部,imag() 取虚部</span></span><br><span class="line"></span><br><span class="line">fmt.Println(<span class="string">"实部为"</span>，<span class="built_in">real</span>(t), <span class="string">"虚部为"</span>，<span class="built_in">imag</span>(t)) <span class="comment">// 实部为1.2  虚部为2.34</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="1.2">字符串string类型</h2>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">长度(字节)</th>
+<th style="text-align:center">零值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">rune</td>
+<td style="text-align:center">字符类型</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">专门用于存储Unicode编码，是uint32别名</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">字符串类型</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">utf8字符串</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>字符串都是隐藏了一个结束符’ \0’  // str = “a”  由’a’ 和’\0’组成一个字符串可以通过 atr[0] 下标访问</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">"helloworld"</span></span><br><span class="line"><span class="comment">// 可以通过下标访问</span></span><br><span class="line">fmt.Println(str[<span class="number">0</span>]) <span class="comment">// h</span></span><br><span class="line">使用内建函数<span class="built_in">len</span>() 能得到字符串的长度。</span><br><span class="line">字符串<span class="keyword">string</span>：“” ，由字符组成</span><br><span class="line">字符char：‘’</span><br></pre></td></tr></table></figure>
+<h2 id="1.3">布尔类型bool</h2>
+
+<blockquote>
+<p>bool 类型只有2个值 true 和 false</p>
+</blockquote>
+<h2 id="1.4">类型转换</h2>
+
+<blockquote>
+<p>strconv包实现了基本数据类型和其字符串表示的相互转换。</p>
+</blockquote>
+<blockquote>
+<p>不同类型之间不能转换-强转也不行（只能用strconv包）</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c <span class="keyword">int32</span> = <span class="number">10</span></span><br><span class="line">d := <span class="keyword">int</span>(c) <span class="comment">// ok</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="literal">false</span></span><br><span class="line">s := <span class="keyword">int</span>(f) <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="2"></h2>
 
 <p>算术运算符： + - <em> / %(求余) ++ –<br>关系运算符： == != &gt; &lt; &gt;= &lt;=<br>逻辑运算符： &amp;&amp;  ||  !<br>位运算符： &amp;(全1为1)  |(含1为1) ^(同为0，异为1)<br>赋值运算符：= += -= </em>= /= %= «= »= &amp;= ^= |=</p>
 <blockquote>
-<p>运算符优先级<br><img src="https://upload-images.jianshu.io/upload_images/4207935-4588337b722b00e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运算符的优先级.png"></p>
+<p>运算符优先级</p>
 </blockquote>
-<h1 id="3">流程控制语句</h1>
-
-<h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a := <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span>  a == <span class="number">1</span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">'ok'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// if支持一个初始化语句，初始化语句和判断条件以分号分割</span></span><br><span class="line"><span class="keyword">if</span>  a :=<span class="number">10</span>; a==<span class="number">10</span>&#123;</span><br><span class="line">   fmt.Println(<span class="string">'ok'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// if-else</span></span><br><span class="line"><span class="keyword">if</span> a:=<span class="number">10</span>; a==<span class="number">10</span>&#123;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//if - else if -else if - else</span></span><br><span class="line"><span class="keyword">if</span> a:=<span class="number">10</span>; a==<span class="number">10</span>&#123;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>  a &gt; <span class="number">10</span>&#123;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>  a &lt; <span class="number">10</span>&#123;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/4207935-4588337b722b00e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运算符的优先级.png"></p>
+<h1 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句<h2 id="3"></h2></h1><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a := <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span>  a == <span class="number">1</span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">'ok'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// if支持一个初始化语句，初始化语句和判断条件以分号分割</span></span><br><span class="line"><span class="keyword">if</span>  a :=<span class="number">10</span>; a==<span class="number">10</span>&#123;</span><br><span class="line">   fmt.Println(<span class="string">'ok'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// if-else</span></span><br><span class="line"><span class="keyword">if</span> a:=<span class="number">10</span>; a==<span class="number">10</span>&#123;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//if - else if -else if - else</span></span><br><span class="line"><span class="keyword">if</span> a:=<span class="number">10</span>; a==<span class="number">10</span>&#123;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>  a &gt; <span class="number">10</span>&#123;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>  a &lt; <span class="number">10</span>&#123;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">num := <span class="number">1</span></span><br><span class="line"><span class="keyword">switch</span> num &#123;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        fmt.Println(<span class="string">"1"</span>)</span><br><span class="line">        <span class="keyword">break</span>  <span class="comment">// go默认实现了break,可以写可以不写</span></span><br><span class="line">        <span class="keyword">fallthrough</span>  <span class="comment">// 不跳出switch,后面的第一个case无条件执行</span></span><br><span class="line">   <span class="keyword">case</span> <span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>:</span><br><span class="line">        fmt.Println(<span class="string">"2"</span>)</span><br><span class="line">   ....</span><br><span class="line">   <span class="keyword">default</span>:</span><br><span class="line">         fmt.Println(<span class="string">"xx"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 支持一个初始化语句，初始化语句后用分号分割，也可以没有任何</span></span><br><span class="line"><span class="keyword">switch</span> num:=<span class="number">1</span>; num &#123;</span><br><span class="line">&#125;</span><br><span class="line">score := <span class="number">21</span></span><br><span class="line"><span class="keyword">switch</span> &#123;</span><br><span class="line">  <span class="keyword">case</span>  score &gt; <span class="number">90</span>:</span><br><span class="line">      xxxx</span><br><span class="line">   ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="for-初始化条件；-判断条件；-条件变化"><a href="#for-初始化条件；-判断条件；-条件变化" class="headerlink" title="for  初始化条件； 判断条件； 条件变化{}"></a>for  初始化条件； 判断条件； 条件变化{}</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>  i:=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>  &#123;  <span class="comment">// 死循环</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过for 打印每个字符：</span></span><br><span class="line">str := <span class="string">"test"</span></span><br><span class="line"><span class="keyword">for</span> i :=<span class="number">0</span>; i &lt; <span class="built_in">len</span>(str); i++&#123;</span><br><span class="line">    fmt.Println(<span class="string">"%s"</span>,str[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过迭代改写, range 默认返回2个值，一个是元素的位置，一个是元素本身</span></span><br><span class="line"><span class="keyword">for</span>  i,v  :=<span class="keyword">range</span> str &#123;</span><br><span class="line">    fmt.Println(<span class="string">"%s"</span>,v)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 另外种写法</span></span><br><span class="line"><span class="keyword">for</span>  i := <span class="keyword">range</span> str &#123;    <span class="comment">// 类似于  for  i,_  := range str</span></span><br><span class="line">    fmt.Println(<span class="string">"%s"</span>,str[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="break-和continue-和-goto"><a href="#break-和continue-和-goto" class="headerlink" title="break 和continue 和 goto"></a>break 和continue 和 goto</h3><blockquote>
@@ -457,11 +652,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构和算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Go</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据结构和算法</a>
               </li>
             
             <div class="clearfix"></div>
