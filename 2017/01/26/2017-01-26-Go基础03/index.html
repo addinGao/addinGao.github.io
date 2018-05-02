@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://addingao.github.io">
-  <title>Tag: Go | Gaochao</title>
+  <title>Go语言基础《三》--Go的数组和切片 | Gaochao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工作3年多，从前端到全栈，再到区块链">
-<meta name="keywords" content="前端,区块链,区块链开发,买币,javascript,html5,js,go,c++,C,Golang,数据结构,比特币,EOS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gaochao">
-<meta property="og:url" content="https://addingao.github.io/tags/Go/index.html">
+  <meta name="description" content="Go语言中的数组大概相当与C/C++中的数组，固定大小，不能够动态扩展大小，而切片大概相当与C++中的Vector，可以动态扩展大小，当大小超过容量时，重新分配一块内存，然后将数据复制到新的内存区域">
+<meta name="keywords" content="Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言基础《三》--Go的数组和切片">
+<meta property="og:url" content="https://addingao.github.io/2017/01/26/2017-01-26-Go基础03/index.html">
 <meta property="og:site_name" content="Gaochao">
-<meta property="og:description" content="工作3年多，从前端到全栈，再到区块链">
+<meta property="og:description" content="Go语言中的数组大概相当与C/C++中的数组，固定大小，不能够动态扩展大小，而切片大概相当与C++中的Vector，可以动态扩展大小，当大小超过容量时，重新分配一块内存，然后将数据复制到新的内存区域">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-02T08:03:46.419Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gaochao">
-<meta name="twitter:description" content="工作3年多，从前端到全栈，再到区块链">
+<meta name="twitter:title" content="Go语言基础《三》--Go的数组和切片">
+<meta name="twitter:description" content="Go语言中的数组大概相当与C/C++中的数组，固定大小，不能够动态扩展大小，而切片大概相当与C++中的Vector，可以动态扩展大小，当大小超过容量时，重新分配一块内存，然后将数据复制到新的内存区域">
   
     <link rel="alternative" href="/atom.xml" title="Gaochao" type="application/atom+xml">
   
@@ -158,302 +159,118 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2017-01-26-Go基础03" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/01/2017-02-01-Go基础10/" class="archive-article-date">
-  	<time datetime="2017-02-01T14:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/01/2017-02-01-Go基础10/">Go语言基础《十》-错误处理</a>
+    <h1 class="article-title" itemprop="name">
+      Go语言基础《三》--Go的数组和切片
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/2017-01-31-Go基础09/" class="archive-article-date">
-  	<time datetime="2017-01-31T14:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/2017-01-31-Go基础09/">Go语言基础《九》-文件处理、字符串转换、json</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/2017-01-31-Go基础08/" class="archive-article-date">
-  	<time datetime="2017-01-31T13:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/2017-01-31-Go基础08/">Go语言基础《八》--面向对象OOP编程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/30/2017-01-30-Go基础07/" class="archive-article-date">
-  	<time datetime="2017-01-30T13:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/30/2017-01-30-Go基础07/">Go语言基础《七》--结构体</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/29/2017-01-29-Go基础06/" class="archive-article-date">
-  	<time datetime="2017-01-29T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/29/2017-01-29-Go基础06/">Go语言基础《六》--函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/28/2017-01-28-Go基础05/" class="archive-article-date">
-  	<time datetime="2017-01-28T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/28/2017-01-28-Go基础05/">Go语言基础《五》--指针</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/27/2017-01-27-Go基础04/" class="archive-article-date">
-  	<time datetime="2017-01-27T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/27/2017-01-27-Go基础04/">Go语言基础《四》--Map</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/26/2017-01-26-Go基础03/" class="archive-article-date">
+        
+        <a href="/2017/01/26/2017-01-26-Go基础03/" class="archive-article-date">
   	<time datetime="2017-01-26T05:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/26/2017-01-26-Go基础03/">Go语言基础《三》--Go的数组和切片</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Go语言中的数组大概相当与C/C++中的数组，固定大小，不能够动态扩展大小，而切片大概相当与C++中的Vector，可以动态扩展大小，当大小超过容量时，重新分配一块内存，然后将数据复制到新的内存区域</p>
+<a id="more"></a>
+<h1 id="全文知识点预览"><a href="#全文知识点预览" class="headerlink" title="全文知识点预览"></a>全文知识点预览</h1><p><a href="#1">1、数组</a></p>
+<ul>
+<li><a href="#1.1">1.1、数组声明方式和初始化</a></li>
+<li><a href="#1.2">1.2、数组的类型</a></li>
+<li><a href="#1.3">1.3、数组元素的访问</a></li>
+<li><a href="#1.4">1.4、数组的长度</a></li>
+</ul>
+<p><a href="#2">2、切片</a></p>
+<ul>
+<li><a href="#2.1">2.1、切片定义和创建方式</a></li>
+<li><a href="#2.2">2.2、切片对比于数组</a></li>
+<li><a href="#2.3">2.3、理解切片的长度和容量</a></li>
+<li><a href="#2.4">2.4、切片的方法append() 和 copy() 函数</a></li>
+</ul>
+<p><a href="#3">3、slice 练习（猜数字游戏）</a><br><span id="1"></span></p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p><span id="1.1"></span></p>
+<h3 id="数组声明方式和初始化"><a href="#数组声明方式和初始化" class="headerlink" title="数组声明方式和初始化"></a>数组声明方式和初始化</h3><p>声明：var arr [n]type   //n表示数组长度,type表示数组存储类型<br>创建并且初始化：</p>
+<ul>
+<li>var arr = [1,2,3] // 会自动推导   </li>
+<li>var arr[3]int = [1,2,3] //规定类型了初始化   </li>
+<li>arr := [1,2,3] //自动推导数组类型，只能在函数内使用</li>
+<li>d := [2][3]int{[3]int{1,2,3},[3]int{4,5,6}} //二维数组</li>
+<li>arr5 := […]int{1, 2, 3, 4, 5} // 这种定义时不定长数组只能在定义时赋值<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 [<span class="number">5</span>]<span class="keyword">int</span>                 <span class="comment">// [0,0,0,0,0]</span></span><br><span class="line">arr2 := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;   <span class="comment">//指定长度为5，并赋5个初始值</span></span><br><span class="line">arr3 := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;         <span class="comment">//指定长度为5，对前3个元素进行赋值，其他元素为零值</span></span><br><span class="line">arr4 := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">4</span>: <span class="number">1</span>&#125;            <span class="comment">//指定长度为5，对第5个元素赋值,其余为0</span></span><br><span class="line">arr5 := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//不指定长度，对数组赋以5个值</span></span><br><span class="line">arr6 := [...]<span class="keyword">int</span>&#123;<span class="number">8</span>: <span class="number">1</span>&#125;          <span class="comment">//不指定长度，对第9个元素（下标为8）赋值1，其余为0</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><span id="1.2"></span></p>
+<h3 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h3><p><strong>不同长度的数组是不一样的类型</strong><br><strong>数组是值类型，将一个数组赋值给另一个数组时，传递的是一份拷贝。</strong><br><strong>数组支持比较和同类型赋值</strong><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只支持 == 或者！=，比较是不是每一个元素都一样，2个数组比较，数组类型要一样</span></span><br><span class="line">a := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">b := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">c := [<span class="number">2</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>&#125;</span><br><span class="line">a == b <span class="comment">// true</span></span><br><span class="line">a == c <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> arr1 =[<span class="number">2</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>&#125; <span class="comment">// 声明并复制一个长度为2，元素为int的数组</span></span><br><span class="line">	<span class="comment">//var arr2 [3]int</span></span><br><span class="line">	<span class="comment">//arr2 = arr1 //报错cannot use arr1 (type [2]int) as type [3]int in assignment</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> arr3 [<span class="number">2</span>]<span class="keyword">int</span> <span class="comment">// 声明一个长度为2，元素为int的数组</span></span><br><span class="line">	arr3 = arr1</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"arr1的地址为：%p\n"</span>,&amp;arr1) <span class="comment">//arr1的地址为：0xc042052080</span></span><br><span class="line">	fmt.Printf(<span class="string">"arr3的地址为：%p"</span>,&amp;arr3) 	<span class="comment">//arr3的地址为：0xc042052090</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：长度或者元素类型不一样的数组不是同类型数组，不能相互赋值，其次，定义声明的未赋值的数组，元素有初始零值</p>
+<p><span id="1.3"></span></p>
+<h3 id="数组元素的访问"><a href="#数组元素的访问" class="headerlink" title="数组元素的访问"></a>数组元素的访问</h3><p>数组元素通过下标访问，通常遍历数组有for的简单方式和for+range方式<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	arr := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;</span><br><span class="line">	<span class="keyword">var</span> arrOne = arr[<span class="number">0</span>] <span class="comment">// arrOne = 1</span></span><br><span class="line">	fmt.Println(arrOne) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 遍历数组 len()函数能得到数组长度</span></span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>;i&lt;<span class="built_in">len</span>(arr);i++ &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"arr[%d]=%d\n"</span>, i, arr[i])</span><br><span class="line">		<span class="comment">/*结果为</span></span><br><span class="line"><span class="comment">		arr[0]=1</span></span><br><span class="line"><span class="comment">		arr[1]=2</span></span><br><span class="line"><span class="comment">		arr[2]=3</span></span><br><span class="line"><span class="comment">		arr[3]=4</span></span><br><span class="line"><span class="comment">		arr[4]=5</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//第二种遍历数组 range 遍历</span></span><br><span class="line">	<span class="keyword">for</span> index,value := <span class="keyword">range</span> arr&#123;</span><br><span class="line">		fmt.Printf(<span class="string">"index=%d,value=%d\n"</span>, index, value)</span><br><span class="line">		<span class="comment">/* 结果为</span></span><br><span class="line"><span class="comment">		index=0,value=1</span></span><br><span class="line"><span class="comment">		index=1,value=2</span></span><br><span class="line"><span class="comment">		index=2,value=3</span></span><br><span class="line"><span class="comment">		index=3,value=4</span></span><br><span class="line"><span class="comment">		index=4,value=5</span></span><br><span class="line"><span class="comment">		value 可以用 arr[index]代替</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><span id="1.4"></span></p>
+<h3 id="数组的长度"><a href="#数组的长度" class="headerlink" title="数组的长度"></a>数组的长度</h3><p>和string一样和通过内置函数len(arr), 获取到数组的长度，访问数组下标若不在[0~len(arr))之间，会报错,下标越界</p>
+<p><span id="2"></span></p>
+<h1 id="切片slice"><a href="#切片slice" class="headerlink" title="切片slice"></a>切片slice</h1><blockquote>
+<p>Go 语言切片是对数组的抽象。 Go 数组的长度不可改变，在特定场景中这样的集合就不太适用，Go中提供了一种灵活，功能强悍的内置类型切片(“动态数组”)，与数组相比切片的长度是不固定的，可以追加元素，在追加时可能使切片的容量增大,它通过内部指针和相关属性引用数组片段</p>
+</blockquote>
+<p><span id="2.1"></span></p>
+<h3 id="切片定义和创建方式"><a href="#切片定义和创建方式" class="headerlink" title="切片定义和创建方式"></a>切片定义和创建方式</h3><p>定义：var identifier []type  // 切片不需要说明长度</p>
+<p>创建切片的几种方式：</p>
+<p>make() 内建函数创建，语法：make([]type, len, cap)； len指slice长度，cap指容量<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> slice1 []<span class="keyword">type</span> = <span class="built_in">make</span>([]<span class="keyword">type</span>, <span class="built_in">len</span>)</span><br><span class="line"><span class="comment">//也可以简写为</span></span><br><span class="line">slice1 := <span class="built_in">make</span>([]<span class="keyword">type</span>, <span class="built_in">len</span>)</span><br></pre></td></tr></table></figure></p>
+<p>直接创建：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">/* 创建切片 */</span></span><br><span class="line">   numbers := []<span class="keyword">int</span>&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;</span><br><span class="line">   printSlice(numbers) <span class="comment">//len=9 cap=9 slice=[0 1 2 3 4 5 6 7 8]</span></span><br><span class="line">	 <span class="comment">//切片的切片也是一个切片</span></span><br><span class="line">   <span class="comment">/* 打印原始切片 */</span></span><br><span class="line">   fmt.Println(<span class="string">"numbers =="</span>, numbers) <span class="comment">// numbers == [0 1 2 3 4 5 6 7 8]</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 打印子切片从索引1(包含) 到索引4(不包含)*/</span></span><br><span class="line">   fmt.Println(<span class="string">"numbers[1:4] =="</span>, numbers[<span class="number">1</span>:<span class="number">4</span>]) <span class="comment">//numbers[1:4] == [1 2 3]</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 默认下限为 0*/</span></span><br><span class="line">   fmt.Println(<span class="string">"numbers[:3] =="</span>, numbers[:<span class="number">3</span>]) <span class="comment">//numbers[:3] == [0 1 2]</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 默认上限为 len(s)*/</span></span><br><span class="line">   fmt.Println(<span class="string">"numbers[4:] =="</span>, numbers[<span class="number">4</span>:]) <span class="comment">//numbers[4:] == [4 5 6 7 8]</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printSlice</span><span class="params">(x []<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">   fmt.Printf(<span class="string">"len=%d cap=%d slice=%v\n"</span>,<span class="built_in">len</span>(x),<span class="built_in">cap</span>(x),x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><span id="2.2"></span></p>
+<h3 id="切片对比于数组"><a href="#切片对比于数组" class="headerlink" title="切片对比于数组"></a>切片对比于数组</h3><p><span style="background:#B9D3EE;color:green;padding:10px 20px;border-radius:5px;border-left:10px solid #1874CD">切片本身没有任何数据。它们只是对现有数组的引用</span><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s :=[] <span class="keyword">int</span> &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> &#125;  <span class="comment">// 直接创建一个切片</span></span><br><span class="line"><span class="comment">//上面一句话等价于 </span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">s :=arr[:]</span><br></pre></td></tr></table></figure></p>
+<p><span style="background:#B9D3EE;color:green;padding:10px 20px;border-radius:5px;border-left:10px solid #1874CD">切片是引用类型，但是有个注意点，就是切片当做函数参数传入时有时候会”引用失效”</span></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面代码证明切片乃是引用类型</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	a := []<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line">	<span class="keyword">var</span> b []<span class="keyword">int</span></span><br><span class="line">	b = a</span><br><span class="line">	fmt.Printf(<span class="string">"%p\n"</span>,b)   <span class="comment">//0xc04200c320</span></span><br><span class="line">	fmt.Printf(<span class="string">"%p\n"</span>,a)   <span class="comment">//0xc04200c320</span></span><br><span class="line">	test(a)</span><br><span class="line">	fmt.Println(a) <span class="comment">// [1,2,3,4] </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span>  <span class="title">test</span><span class="params">(a []<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">	fmt.Printf(<span class="string">"%p"</span>,a) <span class="comment">// 0xc04200c320 地址值也是一样的</span></span><br><span class="line">&#125;</span><br><span class="line">----------注意部分------------------------------------</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	a := []<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line">	<span class="keyword">var</span> b []<span class="keyword">int</span></span><br><span class="line">	b = a</span><br><span class="line">	fmt.Printf(<span class="string">"%p\n"</span>,b) <span class="comment">//0xc04200c320</span></span><br><span class="line">	fmt.Printf(<span class="string">"%p\n"</span>,a)   <span class="comment">//0xc04200c320</span></span><br><span class="line">	appendOne(a)</span><br><span class="line">	fmt.Println(a) <span class="comment">// [1,2,3,4]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span>  <span class="title">appendOne</span><span class="params">(s []<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">	fmt.Printf(<span class="string">"%p\n"</span>,s) <span class="comment">// 0xc04200c320</span></span><br><span class="line">	s = <span class="built_in">append</span>(s, <span class="number">5</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%p\n"</span>,s) <span class="comment">// 0xc042010180</span></span><br><span class="line">	fmt.Println(s)       <span class="comment">// [1,2,3,4,5]</span></span><br><span class="line">&#125;</span><br><span class="line">原因：</span><br><span class="line">	本来appendOne函数是要给切片a追加一个元素，但是函数执行完后a没变，是因为Go中所有函数传参都是值传递，上文，调用appendOne(),把a保存的地址值赋值一份，传递给appendOne函数内的变量s = a,a的长度和容量都为<span class="number">4</span>，所以在<span class="built_in">append</span>时候从新创建了另一个切片temp,容量为原先s的<span class="number">2</span>倍，把s的值赋值过去再添加元素，最后s= temp,所以s中保存的不再是a中的地址值，而是程序创建的另一个地址值。和a切片已无关。</span><br></pre></td></tr></table></figure>
+<h3 id="当多个片共享相同的底层数组时，每个元素所做的更改将在数组中反映出来"><a href="#当多个片共享相同的底层数组时，每个元素所做的更改将在数组中反映出来" class="headerlink" title="当多个片共享相同的底层数组时，每个元素所做的更改将在数组中反映出来"></a>当多个片共享相同的底层数组时，每个元素所做的更改将在数组中反映出来</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    numa := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">78</span>, <span class="number">79</span> ,<span class="number">80</span>&#125;</span><br><span class="line">    nums1 := numa[:] <span class="comment">//creates a slice which contains all elements of the array</span></span><br><span class="line">    nums2 := numa[:]</span><br><span class="line">		fmt.Println(<span class="string">"array before change 1"</span>,numa)</span><br><span class="line">		<span class="comment">//array before change 1 [78 79 80]</span></span><br><span class="line">    nums1[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line">		fmt.Println(<span class="string">"array after modification to slice nums1"</span>, numa)</span><br><span class="line">		<span class="comment">// array after modification to slice nums1 [100 79 80]</span></span><br><span class="line">    nums2[<span class="number">1</span>] = <span class="number">101</span></span><br><span class="line">		fmt.Println(<span class="string">"array after modification to slice nums2"</span>, numa)</span><br><span class="line">		<span class="comment">// array after modification to slice nums2 [100 101 80]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><span id="2.3"></span></p>
+<h3 id="理解切片的长度和容量："><a href="#理解切片的长度和容量：" class="headerlink" title="理解切片的长度和容量："></a>理解切片的长度和容量：</h3><p>切片的长度指，切片目前存入的元素个数，容量则为切片一共可以存入多少个元素<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">numbers := []<span class="keyword">int</span>&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;</span><br><span class="line">numbers1 := <span class="built_in">make</span>([]<span class="keyword">int</span>,<span class="number">0</span>,<span class="number">5</span>)  <span class="comment">// 创建一个长度为0，容量为5的切片</span></span><br><span class="line">number2 := numbers[:<span class="number">2</span>]  <span class="comment">// //len=2 cap=9 slice=[0 1]</span></span><br><span class="line">number3 := numbers[<span class="number">2</span>:<span class="number">5</span>]  <span class="comment">// //len=3 cap=7 slice=[2 3 4],切片只能从左往右看不能反过来</span></span><br></pre></td></tr></table></figure></p>
+<p><span id="2.4"></span></p>
+<h3 id="切片的方法append-和-copy-函数"><a href="#切片的方法append-和-copy-函数" class="headerlink" title="切片的方法append() 和 copy() 函数"></a>切片的方法append() 和 copy() 函数</h3><ul>
+<li><p>append：append 向slice里面追加一个或者多个元素，然后返回一个和slice一样类型的slice </p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers []<span class="keyword">int</span></span><br><span class="line">numbers = <span class="built_in">append</span>(numbers, <span class="number">0</span>) <span class="comment">//len=1 cap=2 slice=[0]</span></span><br><span class="line">numbers = <span class="built_in">append</span>(numbers, <span class="number">1</span>) <span class="comment">//len=2 cap=2 slice=[0 1]</span></span><br><span class="line">numbers = <span class="built_in">append</span>(numbers, <span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)<span class="comment">//len=5 cap=8 slice=[0 1 2 3 4]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>copy():覆蓋。</p>
+</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">numbers := []<span class="keyword">int</span>&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;</span><br><span class="line"><span class="comment">/* 创建切片 numbers1 是之前切片的两倍容量*/</span></span><br><span class="line">numbers1 := []<span class="keyword">int</span>&#123;<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 拷贝 numbers 的内容到 numbers1 */</span></span><br><span class="line"><span class="built_in">copy</span>(numbers1,numbers) <span class="comment">//[1,2,3]，將numbers 覆盖在numbers1上</span></span><br></pre></td></tr></table></figure>
+<p>注意：numbers1与numbers两者不存在联系，numbers发生变化时，numbers1是不会随着变化的。也就是说copy方法是不会建立两个切片的联系的</p>
+<h3 id="切片的遍历和数组的遍历是一样的（见数组的遍历）"><a href="#切片的遍历和数组的遍历是一样的（见数组的遍历）" class="headerlink" title="切片的遍历和数组的遍历是一样的（见数组的遍历）"></a>切片的遍历和数组的遍历是一样的（见数组的遍历）</h3><p><span id="3"></span></p>
+<h1 id="slice-练习（猜数字游戏）"><a href="#slice-练习（猜数字游戏）" class="headerlink" title="slice 练习（猜数字游戏）"></a>slice 练习（猜数字游戏）</h1><p>游戏规则：系统随机产生一个（1000~10000）的整数，玩家猜，若正确则打印全中，退出，若错误，则打印哪一位（个、十、百、千）大了还是小了，让玩家继续猜<br>代码如下：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"time"</span></span><br><span class="line">  <span class="string">"math/rand"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  randNum := getRandomNum()</span><br><span class="line">  userNum := getNum()</span><br><span class="line">  count := game(randNum,userNum)</span><br><span class="line">  <span class="keyword">for</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">4</span> &#123;</span><br><span class="line">      fmt.Println(<span class="string">"全中，游戏退出"</span>)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      userNum := getNum(<span class="number">1</span>)</span><br><span class="line">      count = game(randNum,userNum)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取随机数的函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getRandomNum</span><span class="params">()</span> <span class="params">(num <span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">  rand.Seed(time.Now().UnixNano())</span><br><span class="line">  <span class="keyword">for</span>&#123;</span><br><span class="line">    num = rand.Intn(<span class="number">10000</span>)</span><br><span class="line">    <span class="keyword">if</span> num &gt; <span class="number">1000</span>&#123;</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 把int 的各个位上的数拆分成切片类型的数组</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">chaifen</span><span class="params">( a <span class="keyword">int</span>)</span> <span class="params">(slice []<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">  qian := a / <span class="number">1000</span>  <span class="comment">// 8334</span></span><br><span class="line">  bai  := a % <span class="number">1000</span> / <span class="number">100</span></span><br><span class="line">  shi  := a % <span class="number">100</span> / <span class="number">10</span></span><br><span class="line">  ge   := a % <span class="number">10</span></span><br><span class="line">  slice = <span class="built_in">append</span>(slice, qian)</span><br><span class="line">  slice = <span class="built_in">append</span>(slice, bai)</span><br><span class="line">  slice = <span class="built_in">append</span>(slice, shi)</span><br><span class="line">  slice = <span class="built_in">append</span>(slice, ge)</span><br><span class="line">  <span class="comment">// fmt.Println(slice)</span></span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取用户输入的int 的函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getNum</span> <span class="params">(arge ...<span class="keyword">int</span>)</span> <span class="params">(num <span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">len</span>(arge) == <span class="number">0</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"请输入一个数"</span>)</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"请重新输入一个数"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>&#123;</span><br><span class="line">    fmt.Scan(&amp;num)</span><br><span class="line">    <span class="keyword">if</span> num &gt;= <span class="number">1000</span> &amp;&amp; num &lt;= <span class="number">10000</span>&#123;</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"请输入一个1000~10000之间的数"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 逻辑判断每个slice的各位大小</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">game</span><span class="params">(randNum, userNum <span class="keyword">int</span>)</span><span class="params">(cal <span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">  slice := chaifen(randNum)</span><br><span class="line">  slice1 := chaifen(userNum)</span><br><span class="line">  <span class="comment">//比较2个切片的是否一致</span></span><br><span class="line">  <span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;<span class="built_in">len</span>(slice); i++&#123;</span><br><span class="line">    <span class="keyword">if</span> slice[i] == slice1[i]&#123;</span><br><span class="line">      cal ++</span><br><span class="line">      fmt.Printf(<span class="string">"在第 %d 位上中了\n"</span> ,i)</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> slice[i] &gt; slice1[i]&#123;</span><br><span class="line">      fmt.Printf(<span class="string">"在第 %d 位上小了\n"</span> ,i)</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> slice[i] &lt; slice1[i]&#123;</span><br><span class="line">      fmt.Printf(<span class="string">"在第 %d 位上大了\n"</span> ,i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -465,95 +282,125 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://addingao.github.io/2017/01/26/2017-01-26-Go基础03/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/25/2017-01-25-Go基础02/" class="archive-article-date">
-  	<time datetime="2017-01-25T02:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-25</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/01/27/2017-01-27-Go基础04/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Go语言基础《四》--Map
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/25/2017-01-25-Go基础02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Go语言基础《二》--Go的基础数据类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/25/2017-01-25-Go基础02/">Go语言基础《二》--Go的基础数据类型</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/24/2017-01-24-Go基础01/" class="archive-article-date">
-  	<time datetime="2017-01-24T02:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/24/2017-01-24-Go基础01/">Go语言基础《一》--Go的程序结构</a>
-    </h1>
+  <div id="SOHUCS" sid="2017-01-26-Go基础03" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAaME10",
+        conf: "2e3f120e3271a3b2741e7378c1388995"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -576,9 +423,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

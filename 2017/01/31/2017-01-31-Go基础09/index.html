@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://addingao.github.io">
-  <title>Tag: Go | Gaochao</title>
+  <title>Go语言基础《九》-文件处理、字符串转换、json | Gaochao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工作3年多，从前端到全栈，再到区块链">
-<meta name="keywords" content="前端,区块链,区块链开发,买币,javascript,html5,js,go,c++,C,Golang,数据结构,比特币,EOS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gaochao">
-<meta property="og:url" content="https://addingao.github.io/tags/Go/index.html">
+  <meta name="description" content="无缓存可以理解为直接将数据写入文件。 有缓存可以理解为通过缓存间接的将数据写入文件，数据需要经过缓存，通过flush动作才能完成整个写入过程">
+<meta name="keywords" content="Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言基础《九》-文件处理、字符串转换、json">
+<meta property="og:url" content="https://addingao.github.io/2017/01/31/2017-01-31-Go基础09/index.html">
 <meta property="og:site_name" content="Gaochao">
-<meta property="og:description" content="工作3年多，从前端到全栈，再到区块链">
+<meta property="og:description" content="无缓存可以理解为直接将数据写入文件。 有缓存可以理解为通过缓存间接的将数据写入文件，数据需要经过缓存，通过flush动作才能完成整个写入过程">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-02T14:00:02.521Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gaochao">
-<meta name="twitter:description" content="工作3年多，从前端到全栈，再到区块链">
+<meta name="twitter:title" content="Go语言基础《九》-文件处理、字符串转换、json">
+<meta name="twitter:description" content="无缓存可以理解为直接将数据写入文件。 有缓存可以理解为通过缓存间接的将数据写入文件，数据需要经过缓存，通过flush动作才能完成整个写入过程">
   
     <link rel="alternative" href="/atom.xml" title="Gaochao" type="application/atom+xml">
   
@@ -158,74 +159,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2017-01-31-Go基础09" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/01/2017-02-01-Go基础10/" class="archive-article-date">
-  	<time datetime="2017-02-01T14:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/01/2017-02-01-Go基础10/">Go语言基础《十》-错误处理</a>
+    <h1 class="article-title" itemprop="name">
+      Go语言基础《九》-文件处理、字符串转换、json
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/2017-01-31-Go基础09/" class="archive-article-date">
+        
+        <a href="/2017/01/31/2017-01-31-Go基础09/" class="archive-article-date">
   	<time datetime="2017-01-31T14:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/2017-01-31-Go基础09/">Go语言基础《九》-文件处理、字符串转换、json</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>无缓存可以理解为直接将数据写入文件。 有缓存可以理解为通过缓存间接的将数据写入文件，数据需要经过缓存，通过flush动作才能完成整个写入过程<br><a id="more"></a></p>
+<h1 id="文件处理"><a href="#文件处理" class="headerlink" title="文件处理"></a>文件处理</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"> </span><br><span class="line"><span class="comment">//一些常用的文件操作函数</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//创建目录</span></span><br><span class="line">    <span class="comment">//perm权限设置，os.ModePerm为0777</span></span><br><span class="line">    err := os.Mkdir(<span class="string">"./tmp"</span>, os.ModePerm);</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//创建多级目录</span></span><br><span class="line">    err2 := os.MkdirAll(<span class="string">"./a/b/c"</span>, os.ModePerm);</span><br><span class="line">    <span class="keyword">if</span> err2 != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err2);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//等个3秒，看目录是否创建成功</span></span><br><span class="line">    time.Sleep(time.Second * <span class="number">3</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//删除空目录或文件</span></span><br><span class="line">    <span class="comment">//如果目录下有文件或其他目录会出错</span></span><br><span class="line">    err3 := os.Remove(<span class="string">"./tmp"</span>);</span><br><span class="line">    <span class="keyword">if</span> err3 != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err3);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//删除多级目录</span></span><br><span class="line">    <span class="comment">//如果是单个名称，则删除所有子目录</span></span><br><span class="line">    err4 := os.RemoveAll(<span class="string">"./a/b/c"</span>);</span><br><span class="line">    <span class="keyword">if</span> err4 != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err4);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//文件操作</span></span><br><span class="line">    <span class="comment">//创建文件</span></span><br><span class="line">    <span class="comment">//Create会返回一个文件对象，默认权限0666</span></span><br><span class="line">    file1, err5 := os.Create(<span class="string">"./1.log"</span>);</span><br><span class="line">    <span class="keyword">defer</span> file1.Close();</span><br><span class="line">    <span class="keyword">if</span> err5 != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err5);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//通过文件描述符(文件句柄)来创建文件</span></span><br><span class="line">    file2 := os.NewFile(file1.Fd(), <span class="string">"./2.log"</span>);</span><br><span class="line">    <span class="keyword">defer</span> file2.Close();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//打开文件</span></span><br><span class="line">    <span class="comment">//Open内部调用OpenFile，以只读方式打开</span></span><br><span class="line">    file3, err6 := os.Open(<span class="string">"./1.txt"</span>);</span><br><span class="line">    <span class="keyword">defer</span> file3.Close();</span><br><span class="line">    <span class="keyword">if</span> err6 != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err6);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//OpenFile指定文件打开方式，只读，只写，读写和权限</span></span><br><span class="line">    file4, err7 := os.OpenFile(<span class="string">"./2.txt"</span>, os.O_RDWR, <span class="number">0666</span>);</span><br><span class="line">    <span class="keyword">defer</span> file4.Close();</span><br><span class="line">    <span class="keyword">if</span> err7 != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(file4);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//向文件写入数据</span></span><br><span class="line">    file4.Write([]<span class="keyword">byte</span>(<span class="string">"我写入数据"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//在指定位置写入数据</span></span><br><span class="line">    file4.WriteAt([]<span class="keyword">byte</span>(<span class="string">"指定位置写入数据"</span>), <span class="number">1024</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//直接写入string</span></span><br><span class="line">    file4.WriteString(<span class="string">"你好世界"</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//读取文件数据</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">//将文件偏移量设置为开头</span></span><br><span class="line">    file4.Seek(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    tmp := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">256</span>);</span><br><span class="line">    <span class="comment">//Read读取数据到[]byte中</span></span><br><span class="line">    <span class="keyword">for</span> n, _ := file4.Read(tmp); n != <span class="number">0</span>; n, _ = file4.Read(tmp) &#123;</span><br><span class="line">        fmt.Println(<span class="keyword">string</span>(tmp));</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//ReadAt从off指定位置读取数据到[]byte中</span></span><br><span class="line">    file4.Seek(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">var</span> off <span class="keyword">int64</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        n, _ := file4.ReadAt(tmp, off);</span><br><span class="line">        off += <span class="keyword">int64</span>(n);</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        fmt.Println(<span class="keyword">string</span>(tmp));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Go不同的写入文件的四种方式<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"bufio"</span> <span class="comment">//缓存IO</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"io"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span> <span class="comment">//io 工具包</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">check</span><span class="params">(e error)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> e != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(e)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断文件是否存在  存在返回 true 不存在返回false</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">checkFileIsExist</span><span class="params">(filename <span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> exist = <span class="literal">true</span></span><br><span class="line">	<span class="keyword">if</span> _, err := os.Stat(filename); os.IsNotExist(err) &#123;</span><br><span class="line">		exist = <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> exist</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  from: http://www.isharey.com/?p=143</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> wireteString = <span class="string">"测试n"</span></span><br><span class="line">	<span class="keyword">var</span> filename = <span class="string">"./output1.txt"</span></span><br><span class="line">	<span class="keyword">var</span> f *os.File</span><br><span class="line">	<span class="keyword">var</span> err1 error</span><br><span class="line">	<span class="comment">/***************************** 第一种方式: 使用 io.WriteString 写入文件 ***********************************************/</span></span><br><span class="line">	<span class="keyword">if</span> checkFileIsExist(filename) &#123; <span class="comment">//如果文件存在</span></span><br><span class="line">		f, err1 = os.OpenFile(filename, os.O_APPEND, <span class="number">0666</span>) <span class="comment">//打开文件</span></span><br><span class="line">		fmt.Println(<span class="string">"文件存在"</span>)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		f, err1 = os.Create(filename) <span class="comment">//创建文件</span></span><br><span class="line">		fmt.Println(<span class="string">"文件不存在"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	check(err1)</span><br><span class="line">	n, err1 := io.WriteString(f, wireteString) <span class="comment">//写入文件(字符串)</span></span><br><span class="line">	check(err1)</span><br><span class="line">	fmt.Printf(<span class="string">"写入 %d 个字节n"</span>, n)</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*****************************  第二种方式: 使用 ioutil.WriteFile 写入文件 ***********************************************/</span></span><br><span class="line">	<span class="keyword">var</span> d1 = []<span class="keyword">byte</span>(wireteString)</span><br><span class="line">	err2 := ioutil.WriteFile(<span class="string">"./output2.txt"</span>, d1, <span class="number">0666</span>) <span class="comment">//写入文件(字节数组)</span></span><br><span class="line">	check(err2)</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*****************************  第三种方式:  使用 File(Write,WriteString) 写入文件 ***********************************************/</span></span><br><span class="line">	f, err3 := os.Create(<span class="string">"./output3.txt"</span>) <span class="comment">//创建文件</span></span><br><span class="line">	check(err3)</span><br><span class="line">	<span class="keyword">defer</span> f.Close()</span><br><span class="line">	n2, err3 := f.Write(d1) <span class="comment">//写入文件(字节数组)</span></span><br><span class="line">	check(err3)</span><br><span class="line">	fmt.Printf(<span class="string">"写入 %d 个字节n"</span>, n2)</span><br><span class="line">	n3, err3 := f.WriteString(<span class="string">"writesn"</span>) <span class="comment">//写入文件(字节数组)</span></span><br><span class="line">	fmt.Printf(<span class="string">"写入 %d 个字节n"</span>, n3)</span><br><span class="line">	f.Sync()</span><br><span class="line"></span><br><span class="line">	<span class="comment">/***************************** 第四种方式:  使用 bufio.NewWriter 写入文件 ***********************************************/</span></span><br><span class="line">	w := bufio.NewWriter(f) <span class="comment">//创建新的 Writer 对象</span></span><br><span class="line">	n4, err3 := w.WriteString(<span class="string">"bufferedn"</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"写入 %d 个字节n"</span>, n4)</span><br><span class="line">	w.Flush()</span><br><span class="line">	f.Close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>文件拷贝小列子<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"os"</span></span><br><span class="line">  <span class="string">"io"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span> <span class="params">()</span></span> &#123;</span><br><span class="line">  orPath, newPath := getPath()</span><br><span class="line">  orf,err := os.Open(orPath)</span><br><span class="line">  <span class="keyword">if</span> err != <span class="literal">nil</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">  <span class="keyword">defer</span> orf.Close()</span><br><span class="line">  <span class="comment">// 创建新的文件目录</span></span><br><span class="line">  f,err2 := os.Create(newPath)</span><br><span class="line">  <span class="keyword">if</span> err2 != <span class="literal">nil</span>&#123; <span class="keyword">return</span> &#125;</span><br><span class="line">  <span class="keyword">defer</span> f.Close()</span><br><span class="line">  <span class="comment">// 创建buffer 大小4kb</span></span><br><span class="line">  buf := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">4</span>*<span class="number">1024</span>) </span><br><span class="line">  <span class="keyword">for</span>&#123;</span><br><span class="line">    n, err := orf.Read(buf)</span><br><span class="line">    <span class="keyword">if</span> err !=<span class="literal">nil</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> err == io.EOF&#123; <span class="comment">// 判断读取出错是否由于已经读完引起</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    f.Write(buf[:n])  <span class="comment">// 有多少读多少</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取用户刷</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getPath</span><span class="params">()</span><span class="params">(orPath, newPath <span class="keyword">string</span>)</span></span>&#123;</span><br><span class="line">  list := os.Args</span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">len</span>(list) != <span class="number">3</span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">"输入错误"</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  orPath = list[<span class="number">1</span>]</span><br><span class="line">  newPath = list[<span class="number">2</span>]</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h1><h2 id="字符串处理-需要-import-“strings”"><a href="#字符串处理-需要-import-“strings”" class="headerlink" title="字符串处理 需要 import “strings”"></a>字符串处理 需要 import “strings”</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(strings.Contains(<span class="string">"hellow"</span>, <span class="string">"hell"</span>)) <span class="comment">// 包含返回true，否则返回false</span></span><br><span class="line"> s := []<span class="keyword">string</span>&#123;<span class="string">"abc"</span>,<span class="string">"efg"</span>,<span class="string">"hgk"</span>&#125;</span><br><span class="line"> fmt.Println(strings.Join(s,<span class="string">"#"</span>)) <span class="comment">// abc#efg #hgk 将切片组合成字符串</span></span><br><span class="line"> fmt.Println(strings.Index(<span class="string">"hellow"</span>,<span class="string">"ow"</span>)) <span class="comment">// 4 ，若查不到返回 -1</span></span><br><span class="line"> fmt.Println(strings.Repeat(<span class="string">"he"</span>, <span class="number">3</span>))  <span class="comment">// hehehe</span></span><br><span class="line"> fmt.Println(strings.Split(<span class="string">"aa-bb-cc-dd"</span>, <span class="string">"-"</span>)) <span class="comment">//[aa bb cc dd] 切片</span></span><br><span class="line"> fmt.Println(strings.Trim(<span class="string">"  xx xx  "</span>,<span class="string">" "</span>)) <span class="comment">// xx xx 去前后空格</span></span><br><span class="line"> fmt.Println(strings.Fields(<span class="string">"xx bb cc  dd "</span>)) <span class="comment">// [xx bb cc dd] 按照空格，把元素放入到切片中</span></span><br></pre></td></tr></table></figure>
+<h2 id="字符串转换-import-“strconv”"><a href="#字符串转换-import-“strconv”" class="headerlink" title="字符串转换 import “strconv”"></a>字符串转换 import “strconv”</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">   slice := <span class="built_in">make</span>([]<span class="keyword">byte</span>,<span class="number">0</span>,<span class="number">1024</span>)</span><br><span class="line">   slice = strconv.AppendBool(slice, <span class="literal">true</span>) <span class="comment">//把bool类型转为字符串类型</span></span><br><span class="line">   slice = strconv.AppendInt(slice, <span class="number">112</span>, <span class="number">10</span>) <span class="comment">// 最后一个参数指定10进制的方式追加</span></span><br><span class="line">   slice = strconv.AppendQuote(slice, <span class="string">"aaa"</span>) <span class="comment">// 追加字符串</span></span><br><span class="line">   fmt.Println(<span class="keyword">string</span>(slice))  <span class="comment">// 转换成字符串后打印---true112"aaa"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 其他类型转为字符串</span></span><br><span class="line">  <span class="keyword">var</span> str <span class="keyword">string</span></span><br><span class="line">  str  = strconv.FormatBool(<span class="literal">false</span>)  <span class="comment">// 把 bool转为string</span></span><br><span class="line">  str  = strconv.FormatFloat(<span class="number">3.14</span>, <span class="string">'f'</span> , <span class="number">-1</span> ,<span class="number">64</span>) <span class="comment">//f 指打印格式，-1指小数点位数，64以float64</span></span><br><span class="line">   str = strconv.Itoa(<span class="number">666</span>)  <span class="comment">// 整型转字符串 （常用）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串转为其他类型</span></span><br><span class="line">   a,err := strconv.ParseBool(<span class="string">"true"</span>) <span class="comment">//true --- &lt;nil&gt;</span></span><br><span class="line">   a,err := strconv.Atoi(<span class="string">"555"</span>)   <span class="comment">//555--- &lt;nil&gt;</span></span><br><span class="line">   fmt.Println(a,<span class="string">"---"</span>,err)</span><br></pre></td></tr></table></figure>
+<h1 id="JSON处理"><a href="#JSON处理" class="headerlink" title="JSON处理"></a>JSON处理</h1><p>通过结构体生成json<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"encoding/json"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">type</span> IT <span class="keyword">struct</span> &#123;</span><br><span class="line">		Company  <span class="keyword">string</span>   <span class="string">`json:"company"`</span>     <span class="comment">// 二次编码，改为小写</span></span><br><span class="line">		Subjects []<span class="keyword">string</span> <span class="string">`json:"-"`</span>           <span class="comment">// - 代表此字段不输出</span></span><br><span class="line">		IsOk     <span class="keyword">bool</span>     <span class="string">`json:"isOk,string"`</span> <span class="comment">// 将布尔类型的以string输出</span></span><br><span class="line">		Price    <span class="keyword">float64</span>  <span class="string">`json:"price"`</span></span><br><span class="line">	&#125;</span><br><span class="line">	s := IT&#123;<span class="string">"aas"</span>, []<span class="keyword">string</span>&#123;<span class="string">"go"</span>, <span class="string">"c++"</span>, <span class="string">"node"</span>, <span class="string">"web"</span>&#125;, <span class="literal">true</span>, <span class="number">3.22</span>&#125;</span><br><span class="line">	<span class="comment">//编码，根据内容生成json文本</span></span><br><span class="line">	<span class="comment">// buf,err := json.Marshal(s)  //json未格式化输出 &#123;"company":"aas","isOk":"true","price":3.22&#125;</span></span><br><span class="line">	buf, err := json.MarshalIndent(s, <span class="string">""</span>, <span class="string">" "</span>) <span class="comment">//json格式化代码输出,两个参数表示每一行的前缀和缩进方式,固定写法</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"buf= "</span>, <span class="keyword">string</span>(buf))</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	buf = &#123;</span></span><br><span class="line"><span class="comment">		 "company": "aas",</span></span><br><span class="line"><span class="comment">		 "isOk": "true",</span></span><br><span class="line"><span class="comment">		 "price": 3.22</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过map生成json<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个map</span></span><br><span class="line">m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;,<span class="number">4</span>)</span><br><span class="line">m[<span class="string">"company"</span>] = <span class="string">"aas"</span></span><br><span class="line">m[<span class="string">"subjectes"</span>] = []<span class="keyword">string</span>&#123;<span class="string">"go"</span>,<span class="string">"c++"</span>&#125;</span><br><span class="line">m[<span class="string">"isok"</span>] = <span class="literal">true</span></span><br><span class="line"><span class="comment">// 编码成json</span></span><br><span class="line">result, err := json.MarshalIndent(m,<span class="string">""</span>,<span class="string">"  "</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">   <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">fmt.Println(<span class="string">"res = "</span>, <span class="keyword">string</span>(result))</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	res =  &#123;</span></span><br><span class="line"><span class="comment">	  "company": "aas",</span></span><br><span class="line"><span class="comment">	  "isok": true,</span></span><br><span class="line"><span class="comment">	  "subjectes": [</span></span><br><span class="line"><span class="comment">		"go",</span></span><br><span class="line"><span class="comment">		"c++"</span></span><br><span class="line"><span class="comment">	  ]</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>json解析到结构体<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">jsonBuf :=<span class="string">`</span></span><br><span class="line"><span class="string">   "company": "aas",</span></span><br><span class="line"><span class="string">   "subjects" :[</span></span><br><span class="line"><span class="string">       "go",</span></span><br><span class="line"><span class="string">       "c++"</span></span><br><span class="line"><span class="string">     ],</span></span><br><span class="line"><span class="string">    "isok" : true,</span></span><br><span class="line"><span class="string">    "price" : 1.33</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="comment">// 定义结构体：</span></span><br><span class="line"><span class="keyword">type</span> IT <span class="keyword">struct</span>&#123;</span><br><span class="line">     Company <span class="keyword">string</span>  <span class="string">`json:"company"`</span> <span class="comment">// 二次编码，改为大写</span></span><br><span class="line">     Subjects []<span class="keyword">string</span> <span class="string">`json:"subjects"`</span>   <span class="comment">// 定义多少字段会显示多少字段</span></span><br><span class="line">     IsOk  <span class="keyword">bool</span> <span class="string">`json:"isok"`</span>  </span><br><span class="line">     Price <span class="keyword">float64</span> <span class="string">`json:"price"`</span></span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">//  定义一个结构体实体</span></span><br><span class="line"><span class="keyword">var</span> tmp IT</span><br><span class="line">err := json.Unmarshal([]<span class="keyword">byte</span>(jsonBuf), &amp;tmp)  <span class="comment">// 第二个参数要传地址</span></span><br><span class="line"><span class="keyword">if</span> err!= <span class="literal">nil</span>&#123;</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"tmp= %+v\n"</span>, tmp)</span><br></pre></td></tr></table></figure></p>
+<p>json解析到map<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">jsonBuf :=<span class="string">`</span></span><br><span class="line"><span class="string">   "company": "aas",</span></span><br><span class="line"><span class="string">   "subjects" :[</span></span><br><span class="line"><span class="string">       "go",</span></span><br><span class="line"><span class="string">       "c++"</span></span><br><span class="line"><span class="string">     ],</span></span><br><span class="line"><span class="string">    "isok" : true,</span></span><br><span class="line"><span class="string">    "price" : 1.33</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line">m :=<span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;,<span class="number">4</span>) </span><br><span class="line">err :=json.Unmarshal([]<span class="keyword">byte</span>(jsonBuf), &amp;m)</span><br><span class="line">fmt.Printf(<span class="string">"m = %+v \n"</span>, m)</span><br><span class="line"><span class="comment">//但是要用json数据的话就要使用类型断言，一步步反推，才可以，一般json转结构体。</span></span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -237,323 +229,125 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://addingao.github.io/2017/01/31/2017-01-31-Go基础09/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/2017-01-31-Go基础08/" class="archive-article-date">
-  	<time datetime="2017-01-31T13:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/02/01/2017-02-01-Go基础10/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Go语言基础《十》-错误处理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/31/2017-01-31-Go基础08/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Go语言基础《八》--面向对象OOP编程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/2017-01-31-Go基础08/">Go语言基础《八》--面向对象OOP编程</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/30/2017-01-30-Go基础07/" class="archive-article-date">
-  	<time datetime="2017-01-30T13:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/30/2017-01-30-Go基础07/">Go语言基础《七》--结构体</a>
-    </h1>
+  <div id="SOHUCS" sid="2017-01-31-Go基础09" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAaME10",
+        conf: "2e3f120e3271a3b2741e7378c1388995"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/29/2017-01-29-Go基础06/" class="archive-article-date">
-  	<time datetime="2017-01-29T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/29/2017-01-29-Go基础06/">Go语言基础《六》--函数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/28/2017-01-28-Go基础05/" class="archive-article-date">
-  	<time datetime="2017-01-28T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/28/2017-01-28-Go基础05/">Go语言基础《五》--指针</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/27/2017-01-27-Go基础04/" class="archive-article-date">
-  	<time datetime="2017-01-27T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/27/2017-01-27-Go基础04/">Go语言基础《四》--Map</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/26/2017-01-26-Go基础03/" class="archive-article-date">
-  	<time datetime="2017-01-26T05:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/26/2017-01-26-Go基础03/">Go语言基础《三》--Go的数组和切片</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/25/2017-01-25-Go基础02/" class="archive-article-date">
-  	<time datetime="2017-01-25T02:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/25/2017-01-25-Go基础02/">Go语言基础《二》--Go的基础数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/24/2017-01-24-Go基础01/" class="archive-article-date">
-  	<time datetime="2017-01-24T02:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/24/2017-01-24-Go基础01/">Go语言基础《一》--Go的程序结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -576,9 +370,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

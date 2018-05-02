@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://addingao.github.io">
-  <title>Tag: Go | Gaochao</title>
+  <title>Go语言基础《五》--指针 | Gaochao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工作3年多，从前端到全栈，再到区块链">
-<meta name="keywords" content="前端,区块链,区块链开发,买币,javascript,html5,js,go,c++,C,Golang,数据结构,比特币,EOS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gaochao">
-<meta property="og:url" content="https://addingao.github.io/tags/Go/index.html">
+  <meta name="description" content="指针是存储另一个变量的内存地址的变量,相比于C中的指针简化了很多，最大差异是，Go中的指针不能进行运算">
+<meta name="keywords" content="Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言基础《五》--指针">
+<meta property="og:url" content="https://addingao.github.io/2017/01/28/2017-01-28-Go基础05/index.html">
 <meta property="og:site_name" content="Gaochao">
-<meta property="og:description" content="工作3年多，从前端到全栈，再到区块链">
+<meta property="og:description" content="指针是存储另一个变量的内存地址的变量,相比于C中的指针简化了很多，最大差异是，Go中的指针不能进行运算">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-02T11:36:14.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gaochao">
-<meta name="twitter:description" content="工作3年多，从前端到全栈，再到区块链">
+<meta name="twitter:title" content="Go语言基础《五》--指针">
+<meta name="twitter:description" content="指针是存储另一个变量的内存地址的变量,相比于C中的指针简化了很多，最大差异是，Go中的指针不能进行运算">
   
     <link rel="alternative" href="/atom.xml" title="Gaochao" type="application/atom+xml">
   
@@ -158,226 +159,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2017-01-28-Go基础05" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/01/2017-02-01-Go基础10/" class="archive-article-date">
-  	<time datetime="2017-02-01T14:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/01/2017-02-01-Go基础10/">Go语言基础《十》-错误处理</a>
+    <h1 class="article-title" itemprop="name">
+      Go语言基础《五》--指针
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/2017-01-31-Go基础09/" class="archive-article-date">
-  	<time datetime="2017-01-31T14:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/2017-01-31-Go基础09/">Go语言基础《九》-文件处理、字符串转换、json</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/2017-01-31-Go基础08/" class="archive-article-date">
-  	<time datetime="2017-01-31T13:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/2017-01-31-Go基础08/">Go语言基础《八》--面向对象OOP编程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/30/2017-01-30-Go基础07/" class="archive-article-date">
-  	<time datetime="2017-01-30T13:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/30/2017-01-30-Go基础07/">Go语言基础《七》--结构体</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/29/2017-01-29-Go基础06/" class="archive-article-date">
-  	<time datetime="2017-01-29T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/29/2017-01-29-Go基础06/">Go语言基础《六》--函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/28/2017-01-28-Go基础05/" class="archive-article-date">
+        
+        <a href="/2017/01/28/2017-01-28-Go基础05/" class="archive-article-date">
   	<time datetime="2017-01-28T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/28/2017-01-28-Go基础05/">Go语言基础《五》--指针</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>指针是存储另一个变量的内存地址的变量,相比于C中的指针简化了很多，最大差异是，Go中的指针不能进行运算<br><a id="more"></a></p>
+<h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><h2 id="内置函数make-和new"><a href="#内置函数make-和new" class="headerlink" title="内置函数make()和new()"></a>内置函数make()和new()</h2><p>make用于内建类型（map、slice 和channel）的内存分配<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span>([]<span class="keyword">byte</span>,<span class="number">1024</span>) <span class="comment">//创建一个长度为1024，容量为1024的字节数组</span></span><br><span class="line"><span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>) <span class="comment">// 创建一个map</span></span><br></pre></td></tr></table></figure></p>
+<p>new用于各种类型的内存分配,它返回了一个指针，指向新分配的类型T的零值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  p *<span class="keyword">int</span>  <span class="comment">//声明一个指针类型的变量p</span></span><br><span class="line">p = <span class="built_in">new</span>(<span class="keyword">int</span>)  <span class="comment">// p是指针类型，现在指向了一个没有名字的int地址</span></span><br><span class="line">*p = <span class="number">22</span>   <span class="comment">// new 出的那个int地址将内容赋值为22</span></span><br></pre></td></tr></table></figure>
+<h2 id="指针默认值为-nil-，每个变量都有2层含义，变量的内存和变量的地址-获取变量地址要使用取地址符-amp-，取地址所保存的值则在变量前加"><a href="#指针默认值为-nil-，每个变量都有2层含义，变量的内存和变量的地址-获取变量地址要使用取地址符-amp-，取地址所保存的值则在变量前加" class="headerlink" title="指针默认值为 nil ，每个变量都有2层含义，变量的内存和变量的地址,获取变量地址要使用取地址符&amp;，取地址所保存的值则在变量前加*"></a>指针默认值为 nil ，每个变量都有2层含义，变量的内存和变量的地址,获取变量地址要使用取地址符&amp;，取地址所保存的值则在变量前加*</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  a <span class="keyword">int</span>  = <span class="number">10</span> </span><br><span class="line"></span><br><span class="line">fmt.Printf( <span class="string">" a = %d \n"</span>, a) <span class="comment">// 变量的内容  10</span></span><br><span class="line"></span><br><span class="line">fmt.Printf(<span class="string">" &amp;a = %v \n"</span>,  &amp;a)  <span class="comment">// 变量的地址 0xc042052058</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存某个变量的地址，需要指针类型   *int 保存int的地址 **int 保存 *int的地址</span></span><br><span class="line"><span class="keyword">var</span>  b <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span>  p *<span class="keyword">int</span>  <span class="comment">// 声明一个指针变量p</span></span><br><span class="line">p = &amp;b <span class="comment">// 获取b的地址值赋值给 p </span></span><br><span class="line">*p = <span class="number">22</span>  <span class="comment">// *p操作的不是p的内存，是p所指向的内存，就是b的值，因此b的值变为22</span></span><br></pre></td></tr></table></figure>
+<h3 id="不要操作没有合法指向的内存"><a href="#不要操作没有合法指向的内存" class="headerlink" title="不要操作没有合法指向的内存"></a>不要操作没有合法指向的内存</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  p  *<span class="keyword">int</span></span><br><span class="line">p = <span class="literal">nil</span></span><br><span class="line">fmt.Println(<span class="string">"p = "</span>, p)</span><br><span class="line">*p = <span class="number">666</span> <span class="comment">//err,因为p没有合法指向</span></span><br><span class="line">只有 <span class="keyword">var</span> i <span class="keyword">int</span> </span><br><span class="line">p = &amp;i</span><br><span class="line">*p = <span class="number">22</span> <span class="comment">//才可以给i设置成22</span></span><br></pre></td></tr></table></figure>
+<h3 id="指针操作交换2个变量的值"><a href="#指针操作交换2个变量的值" class="headerlink" title="指针操作交换2个变量的值"></a>指针操作交换2个变量的值</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	b := <span class="number">2</span></span><br><span class="line">	swap(&amp;a,&amp;b) <span class="comment">// a =2 , b = 1 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swap</span><span class="params">(a,b *<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">	*a, *b = *b, *a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="指针的指针-—-var-ptr-int"><a href="#指针的指针-—-var-ptr-int" class="headerlink" title="指针的指针 — var ptr **int;"></a>指针的指针 — var ptr **int;</h3><p>如果一个指针变量存放的又是另一个指针变量的地址，则称这个指针变量为指向指针的指针变量。<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line">   <span class="keyword">var</span> ptr *<span class="keyword">int</span></span><br><span class="line">   <span class="keyword">var</span> pptr **<span class="keyword">int</span></span><br><span class="line"></span><br><span class="line">   a = <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 指针 ptr 地址 */</span></span><br><span class="line">   ptr = &amp;a</span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 指向指针 ptr 地址 */</span></span><br><span class="line">   pptr = &amp;ptr</span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 获取 pptr 的值 */</span></span><br><span class="line">   fmt.Printf(<span class="string">"变量 a = %d\n"</span>, a ) <span class="comment">//  a = 3000</span></span><br><span class="line">   fmt.Printf(<span class="string">"指针变量 *ptr = %d\n"</span>, *ptr ) <span class="comment">//  *ptr = 3000</span></span><br><span class="line">   fmt.Printf(<span class="string">"指向指针的指针变量 **pptr = %d\n"</span>, **pptr) <span class="comment">// **ptr = 3000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -389,171 +227,125 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://addingao.github.io/2017/01/28/2017-01-28-Go基础05/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/27/2017-01-27-Go基础04/" class="archive-article-date">
-  	<time datetime="2017-01-27T08:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/01/29/2017-01-29-Go基础06/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Go语言基础《六》--函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/27/2017-01-27-Go基础04/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Go语言基础《四》--Map</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/27/2017-01-27-Go基础04/">Go语言基础《四》--Map</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/26/2017-01-26-Go基础03/" class="archive-article-date">
-  	<time datetime="2017-01-26T05:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/26/2017-01-26-Go基础03/">Go语言基础《三》--Go的数组和切片</a>
-    </h1>
+  <div id="SOHUCS" sid="2017-01-28-Go基础05" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytAaME10",
+        conf: "2e3f120e3271a3b2741e7378c1388995"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/25/2017-01-25-Go基础02/" class="archive-article-date">
-  	<time datetime="2017-01-25T02:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/25/2017-01-25-Go基础02/">Go语言基础《二》--Go的基础数据类型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/24/2017-01-24-Go基础01/" class="archive-article-date">
-  	<time datetime="2017-01-24T02:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/24/2017-01-24-Go基础01/">Go语言基础《一》--Go的程序结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -576,9 +368,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
